@@ -7,22 +7,18 @@ namespace Sistema_3_PI_DS
 {
     public partial class Form1 : Form
     {
-    
-        // BANCO DE DADOS
+        List<Produto> Produtos = new List<Produto>();
+        List<Cliente> Clientes = new List<Cliente>();
+        List<Producao> Producoes = new List<Producao>();
 
-        private List<Produto> Produtos = new List<Produto>();
-        private List<Cliente> Clientes = new List<Cliente>();
-        private List<Producao> Producoes = new List<Producao>();
+        Panel painelMenu;
+        Panel painelConteudo;
+        DataGridView grid;
 
-        // COMPONENTES
-        private Panel painelMenu;
-        private Panel painelConteudo;
-        private DataGridView grid;
-
-        private TextBox txtNomeProduto, txtCategoria, txtPeso, txtPreco;
-        private TextBox txtNomeCliente, txtTelefone;
-        private NumericUpDown nudQuantidade, nudQtdProducao;
-        private DateTimePicker dtpData;
+        TextBox txtNomeProduto, txtCategoria, txtPeso, txtPreco;
+        TextBox txtNomeCliente, txtTelefone;
+        NumericUpDown nudQuantidade, nudQtdProducao;
+        DateTimePicker dtpData;
 
         public Form1()
         {
@@ -45,8 +41,6 @@ namespace Sistema_3_PI_DS
             CarregarProdutosPDF();
         }
 
-        // MODELOS (CORRETOS — ESSA É A CLASSE QUE O GRID DEVE LER)
-
         private class Produto
         {
             public string Nome { get; set; }
@@ -67,9 +61,6 @@ namespace Sistema_3_PI_DS
             public DateTime Data { get; set; }
             public int Quantidade { get; set; }
         }
-
-
-        // COLOCAR OS PRODUTOS
 
         private void CarregarProdutosPDF()
         {
@@ -97,9 +88,6 @@ namespace Sistema_3_PI_DS
             Produtos.Add(new Produto { Nome = "Rituais Mogiana 500g", Categoria = "Especial", Peso = "500 g", Preco = 119.90 });
             Produtos.Add(new Produto { Nome = "Rituais Mogiana 1kg", Categoria = "Especial", Peso = "1 kg", Preco = 142.90 });
         }
-
-
-        // INTERFACE
 
         private void CriarInterface()
         {
@@ -136,13 +124,9 @@ namespace Sistema_3_PI_DS
             btn.FlatStyle = FlatStyle.Flat;
             btn.FlatAppearance.BorderColor = Color.FromArgb(255, 204, 153);
             btn.FlatAppearance.BorderSize = 2;
-
             btn.Click += acao;
             painelMenu.Controls.Add(btn);
         }
-
-
-        // TELAS
 
         private void MostrarDashboard()
         {
@@ -180,6 +164,9 @@ namespace Sistema_3_PI_DS
 
             Button btnAdd = AddButton("Adicionar Produto", 20, 230);
             btnAdd.Click += BtnAddProduto_Click;
+
+            Button btnExcluir = AddButton("Excluir Produto", 220, 230);
+            btnExcluir.Click += BtnExcluirProduto_Click;
 
             grid = AddGrid(20, 300);
             AtualizarGrid(Produtos);
@@ -239,9 +226,6 @@ namespace Sistema_3_PI_DS
             b3.Click += (s, e) => AtualizarGrid(Clientes);
         }
 
-
-        // AÇÕES
-
         private void BtnAddProduto_Click(object sender, EventArgs e)
         {
             double preco;
@@ -263,40 +247,36 @@ namespace Sistema_3_PI_DS
             AtualizarGrid(Produtos);
         }
 
+        private void BtnExcluirProduto_Click(object sender, EventArgs e)
+        {
+            if (grid.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione um produto para excluir.");
+                return;
+            }
+
+            int index = grid.SelectedRows[0].Index;
+            Produtos.RemoveAt(index);
+            AtualizarGrid(Produtos);
+        }
+
         private void BtnAddCliente_Click(object sender, EventArgs e)
         {
-            Clientes.Add(new Cliente
-            {
-                Nome = txtNomeCliente.Text,
-                Telefone = txtTelefone.Text
-            });
-
+            Clientes.Add(new Cliente { Nome = txtNomeCliente.Text, Telefone = txtTelefone.Text });
             AtualizarGrid(Clientes);
         }
 
         private void BtnAddProducao_Click(object sender, EventArgs e)
         {
-            Producoes.Add(new Producao
-            {
-                Data = dtpData.Value,
-                Quantidade = (int)nudQtdProducao.Value
-            });
-
+            Producoes.Add(new Producao { Data = dtpData.Value, Quantidade = (int)nudQtdProducao.Value });
             AtualizarGrid(Producoes);
         }
-
-
-        // NAVEGAÇÃO ENTRE TELAS
 
         private void BtnDashboard_Click(object sender, EventArgs e) => MostrarDashboard();
         private void BtnEstoque_Click(object sender, EventArgs e) => MostrarEstoque();
         private void BtnClientes_Click(object sender, EventArgs e) => MostrarClientes();
         private void BtnProducao_Click(object sender, EventArgs e) => MostrarProducao();
         private void BtnRelatorios_Click(object sender, EventArgs e) => MostrarRelatorios();
-
-
-
-        // GRID COM FORMATAÇÃO (Preço aparecendo!)
 
         private void AtualizarGrid(object lista)
         {
@@ -309,9 +289,6 @@ namespace Sistema_3_PI_DS
                 grid.Columns["Preco"].HeaderText = "Preço (R$)";
             }
         }
-
-
-        // COMPONENTES AUXILIARES
 
         private Label AddLabel(string texto, int x, int y)
         {

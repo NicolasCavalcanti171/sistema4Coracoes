@@ -1,25 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\lab3132\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\",
+  "WorkspaceRootPath": "C:\\Users\\lab1052\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|c:\\users\\lab3132\\desktop\\sistema4coracoes\\sistema_3_pi_ds\\sistema_3_pi_ds\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|solutionrelative:sistema_3_pi_ds\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|C:\\Users\\lab3132\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\sistema_3_pi_ds\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|C:\\Users\\lab1052\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\sistema_3_pi_ds\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|solutionrelative:sistema_3_pi_ds\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|C:\\Users\\lab3132\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\sistema_3_pi_ds\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|c:\\users\\lab1052\\desktop\\sistema4coracoes\\sistema_3_pi_ds\\sistema_3_pi_ds\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|solutionrelative:sistema_3_pi_ds\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|C:\\Users\\lab1052\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\sistema_3_pi_ds\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|solutionrelative:sistema_3_pi_ds\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|C:\\Users\\lab3132\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\sistema_3_pi_ds\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|solutionrelative:sistema_3_pi_ds\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\$Recycle.Bin\\S-1-5-21-1558088754-3523031890-1735196553-1153\\$R8VS2AG.vs\\Sistema_3_PI_DS\\v17\\DocumentLayout.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,49 +30,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\lab3132\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\App.config",
-              "RelativeDocumentMoniker": "Sistema_3_PI_DS\\App.config",
-              "ToolTip": "C:\\Users\\lab3132\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\App.config",
-              "RelativeToolTip": "Sistema_3_PI_DS\\App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-11-26T16:45:23.367Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DocumentLayout.json",
-              "DocumentMoniker": "C:\\$Recycle.Bin\\S-1-5-21-1558088754-3523031890-1735196553-1153\\$R8VS2AG.vs\\Sistema_3_PI_DS\\v17\\DocumentLayout.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\$Recycle.Bin\\S-1-5-21-1558088754-3523031890-1735196553-1153\\$R8VS2AG.vs\\Sistema_3_PI_DS\\v17\\DocumentLayout.json",
-              "ToolTip": "C:\\$Recycle.Bin\\S-1-5-21-1558088754-3523031890-1735196553-1153\\$R8VS2AG.vs\\Sistema_3_PI_DS\\v17\\DocumentLayout.json",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\$Recycle.Bin\\S-1-5-21-1558088754-3523031890-1735196553-1153\\$R8VS2AG.vs\\Sistema_3_PI_DS\\v17\\DocumentLayout.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-24T18:10:39.081Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\lab3132\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\lab1052\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\Form1.cs",
               "RelativeDocumentMoniker": "Sistema_3_PI_DS\\Form1.cs",
-              "ToolTip": "C:\\Users\\lab3132\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\Form1.cs [Design]",
-              "RelativeToolTip": "Sistema_3_PI_DS\\Form1.cs [Design]",
+              "ToolTip": "C:\\Users\\lab1052\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\Form1.cs [Design]*",
+              "RelativeToolTip": "Sistema_3_PI_DS\\Form1.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T19:46:27.686Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\lab3132\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\lab1052\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\Form1.cs",
               "RelativeDocumentMoniker": "Sistema_3_PI_DS\\Form1.cs",
-              "ToolTip": "C:\\Users\\lab3132\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\Form1.cs",
-              "RelativeToolTip": "Sistema_3_PI_DS\\Form1.cs",
-              "ViewState": "AgIAAAgBAAAAAAAAAAAkwDoBAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\lab1052\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\Form1.cs*",
+              "RelativeToolTip": "Sistema_3_PI_DS\\Form1.cs*",
+              "ViewState": "AgIAADcBAAAAAAAAAAAqwFQBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T19:43:31.573Z",
               "EditorCaption": ""
@@ -88,13 +57,14 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\lab3132\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\lab1052\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\Program.cs",
               "RelativeDocumentMoniker": "Sistema_3_PI_DS\\Program.cs",
-              "ToolTip": "C:\\Users\\lab3132\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\Program.cs",
+              "ToolTip": "C:\\Users\\lab1052\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\Program.cs",
               "RelativeToolTip": "Sistema_3_PI_DS\\Program.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAawA0AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAawBMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T19:42:06.777Z"
+              "WhenOpened": "2025-11-19T19:42:06.777Z",
+              "EditorCaption": ""
             }
           ]
         }
