@@ -8,8 +8,7 @@ namespace Sistema_3_PI_DS
 {
     internal static class Program
     {
-        /// <summary>
-        /// Ponto de entrada principal para o aplicativo.
+
         /// </summary>
         [STAThread]
         static void Main()
