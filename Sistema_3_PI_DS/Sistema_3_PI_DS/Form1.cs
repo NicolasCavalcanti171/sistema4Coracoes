@@ -20,9 +20,13 @@ namespace Sistema_3_PI_DS
         NumericUpDown nudQuantidade, nudQtdProducao;
         DateTimePicker dtpData;
 
+        Icon icon;
+
         public Form1()
         {
             InitializeComponent();
+
+            this.Icon = new Icon(@"C:\Users\lab1065\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\obj\Debug\logo.ico");
         }
 
         private void InitializeComponent()
