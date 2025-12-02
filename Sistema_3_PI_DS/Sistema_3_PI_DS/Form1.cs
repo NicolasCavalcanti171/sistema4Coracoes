@@ -71,28 +71,11 @@ namespace Sistema_3_PI_DS
         private void CarregarProdutosPadrao()
         {
             Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – TORRA CLARA", Categoria = "Gourmet", Peso = "250 g", Preco = 42.90 });
-            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – TORRA CLARA", Categoria = "Gourmet", Peso = "500 g", Preco = 79.90 });
-            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – TORRA CLARA", Categoria = "Gourmet", Peso = "1 kg", Preco = 97.90 });
-
             Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – ESPÍRITO SANTO", Categoria = "Gourmet", Peso = "250 g", Preco = 45.90 });
-            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – ESPÍRITO SANTO", Categoria = "Gourmet", Peso = "500 g", Preco = 84.90 });
-            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – ESPÍRITO SANTO", Categoria = "Gourmet", Peso = "1 kg", Preco = 104.90 });
-
             Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – ORGÂNICO", Categoria = "Gourmet", Peso = "250 g", Preco = 57.90 });
-            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – ORGÂNICO", Categoria = "Gourmet", Peso = "500 g", Preco = 109.90 });
-            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – ORGÂNICO", Categoria = "Gourmet", Peso = "1 kg", Preco = 134.90 });
-
             Produtos.Add(new ProdutoModel { Nome = "GOURMET – DARK ROAST", Categoria = "Torra Escura", Peso = "250 g", Preco = 47.90 });
-            Produtos.Add(new ProdutoModel { Nome = "GOURMET – DARK ROAST", Categoria = "Torra Escura", Peso = "500 g", Preco = 89.90 });
-            Produtos.Add(new ProdutoModel { Nome = "GOURMET – DARK ROAST", Categoria = "Torra Escura", Peso = "1 kg", Preco = 112.90 });
-
             Produtos.Add(new ProdutoModel { Nome = "INTENSO – CÁPSULAS DE ALUMÍNIO", Categoria = "Cápsulas", Peso = "10 cápsulas (50 g)", Preco = 37.90 });
-            Produtos.Add(new ProdutoModel { Nome = "INTENSO – CÁPSULAS DE ALUMÍNIO", Categoria = "Cápsulas", Peso = "30 cápsulas (150 g)", Preco = 109.90 });
-            Produtos.Add(new ProdutoModel { Nome = "INTENSO – CÁPSULAS DE ALUMÍNIO", Categoria = "Cápsulas", Peso = "50 cápsulas (250 g)", Preco = 127.90 });
-
             Produtos.Add(new ProdutoModel { Nome = "RITUAIS – MOGIANA PAULISTA", Categoria = "Rituais", Peso = "250 g", Preco = 62.90 });
-            Produtos.Add(new ProdutoModel { Nome = "RITUAIS – MOGIANA PAULISTA", Categoria = "Rituais", Peso = "500 g", Preco = 119.90 });
-            Produtos.Add(new ProdutoModel { Nome = "RITUAIS – MOGIANA PAULISTA", Categoria = "Rituais", Peso = "1 kg", Preco = 142.90 });
         }
 
         private void CriarInterfaceInicial()
