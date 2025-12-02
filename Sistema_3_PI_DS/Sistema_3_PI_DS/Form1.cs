@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Sistema_3_PI_DS
 {
@@ -24,6 +25,7 @@ namespace Sistema_3_PI_DS
     {
         public DateTime Data { get; set; }
         public int Quantidade { get; set; }
+        public string NomeProduto { get; set; }
     }
 
     public partial class Form1 : Form
@@ -43,6 +45,7 @@ namespace Sistema_3_PI_DS
 
         NumericUpDown nudQtdProducao;
         DateTimePicker dtpData;
+        ComboBox cmbProdutoProducao;
 
         public Form1()
         {
@@ -295,15 +298,29 @@ namespace Sistema_3_PI_DS
             dtpData.SetBounds(150, 20, 200, 30);
             painelConteudo.Controls.Add(dtpData);
 
-            AddLabel("Quantidade:", 20, 60);
+            AddLabel("Produto:", 20, 60);
+            cmbProdutoProducao = new ComboBox();
+            cmbProdutoProducao.SetBounds(150, 60, 350, 30);
+            cmbProdutoProducao.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            cmbProdutoProducao.Items.AddRange(Produtos.Select(p => p.Nome).ToArray());
+
+            if (cmbProdutoProducao.Items.Count > 0)
+                cmbProdutoProducao.SelectedIndex = 0;
+
+            painelConteudo.Controls.Add(cmbProdutoProducao);
+
+
+            AddLabel("Quantidade:", 20, 100);
             nudQtdProducao = new NumericUpDown();
-            nudQtdProducao.SetBounds(150, 60, 100, 30);
+            nudQtdProducao.SetBounds(150, 100, 100, 30);
+            nudQtdProducao.Maximum = 10000;
             painelConteudo.Controls.Add(nudQtdProducao);
 
-            Button btnAdd = AddButton("Registrar Produção", 20, 110);
+            Button btnAdd = AddButton("Registrar Produção", 20, 150);
             btnAdd.Click += BtnAddProducao_Click;
 
-            grid = AddGrid(20, 170);
+            grid = AddGrid(20, 210);
             AtualizarGridProducoes();
         }
 
@@ -372,7 +389,27 @@ namespace Sistema_3_PI_DS
 
         private void BtnAddProducao_Click(object sender, EventArgs e)
         {
-            Producoes.Add(new ProducaoModel { Data = dtpData.Value, Quantidade = (int)nudQtdProducao.Value });
+            if (cmbProdutoProducao.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, selecione um produto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (nudQtdProducao.Value <= 0)
+            {
+                MessageBox.Show("A quantidade deve ser maior que zero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string produtoSelecionado = cmbProdutoProducao.SelectedItem.ToString();
+
+            Producoes.Add(new ProducaoModel
+            {
+                NomeProduto = produtoSelecionado,
+                Data = dtpData.Value,
+                Quantidade = (int)nudQtdProducao.Value
+            });
+
             AtualizarGridProducoes();
         }
 
