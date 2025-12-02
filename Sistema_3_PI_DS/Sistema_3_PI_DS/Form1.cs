@@ -5,113 +5,203 @@ using System.Windows.Forms;
 
 namespace Sistema_3_PI_DS
 {
+    // Modelo com sufixo "Model" para evitar colisões com outras classes no projeto
+    public class ProdutoModel
+    {
+        public string Nome { get; set; }
+        public string Categoria { get; set; }
+        public string Peso { get; set; }
+        public double Preco { get; set; }
+        public int Quantidade { get; set; }
+    }
+
+    public class ClienteModel
+    {
+        public string Nome { get; set; }
+        public string Telefone { get; set; }
+    }
+
+    public class ProducaoModel
+    {
+        public DateTime Data { get; set; }
+        public int Quantidade { get; set; }
+    }
+
+    // Form principal — partial para compatibilidade com possíveis arquivos designer
     public partial class Form1 : Form
     {
-        List<Produto> Produtos = new List<Produto>();
-        List<Cliente> Clientes = new List<Cliente>();
-        List<Producao> Producoes = new List<Producao>();
+        // ----- Dados -----
+        List<ProdutoModel> Produtos = new List<ProdutoModel>();
+        List<ClienteModel> Clientes = new List<ClienteModel>();
+        List<ProducaoModel> Producoes = new List<ProducaoModel>();
 
+        // ----- Controles principais -----
         Panel painelMenu;
         Panel painelConteudo;
         DataGridView grid;
 
+        // controles de estoque
         TextBox txtNomeProduto, txtCategoria, txtPeso, txtPreco;
+        NumericUpDown nudQuantidade;
+
+        // controles de clientes
         TextBox txtNomeCliente, txtTelefone;
-        NumericUpDown nudQuantidade, nudQtdProducao;
+
+        // produção
+        NumericUpDown nudQtdProducao;
         DateTimePicker dtpData;
 
-        Icon icon;
-
+        // ----- Construtor -----
         public Form1()
         {
+            // Se o seu projeto possuir um Form1.Designer.cs que define InitializeComponent,
+            // mantenha esta chamada; caso contrário, InitializeComponent abaixo é leve.
             InitializeComponent();
-
-            this.Icon = new Icon(@"C:\Users\lab1065\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\obj\Debug\logo.ico");
+            // Garanta que o Load seja inscrito:
+            this.Load += Form1_Load;
         }
 
+        // Se não existir designer, essa implementação básica garante que tudo funcione.
         private void InitializeComponent()
         {
             this.ClientSize = new Size(1100, 650);
             this.Text = "ERP 4 Corações - Sistema de Gestão";
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-
-            this.Load += Form1_Load;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            CriarInterface();
-            CarregarProdutosPDF();
+            CriarInterfaceInicial();
+            CarregarProdutosPadrao();
         }
 
-        private class Produto
+        // ----- Dados iniciais (amostra) -----
+        private void CarregarProdutosPadrao()
         {
-            public string Nome { get; set; }
-            public string Categoria { get; set; }
-            public string Peso { get; set; }
-            public double Preco { get; set; }
-            public int Quantidade { get; set; }
+            Produtos.Add(new ProdutoModel { Nome = "Gourmet 250g", Categoria = "Arábica", Peso = "250 g", Preco = 42.90 });
+            Produtos.Add(new ProdutoModel { Nome = "Gourmet 500g", Categoria = "Arábica", Peso = "500 g", Preco = 79.90 });
+            Produtos.Add(new ProdutoModel { Nome = "Dark Roast 250g", Categoria = "Torrado", Peso = "250 g", Preco = 47.90 });
         }
 
-        private class Cliente
+        // ----- Cria a interface (login -> sistema) -----
+        private void CriarInterfaceInicial()
         {
-            public string Nome { get; set; }
-            public string Telefone { get; set; }
+            // Tela inicial: login
+            this.Controls.Clear();
+            this.BackColor = Color.FromArgb(80, 45, 25);
+
+            Label lblTitulo = new Label()
+            {
+                Text = "ERP 4 Corações",
+                Font = new Font("Segoe UI", 28, FontStyle.Bold),
+                ForeColor = Color.White,
+                AutoSize = true,
+                Location = new Point(380, 50)
+            };
+            this.Controls.Add(lblTitulo);
+
+            Label lblUsuario = new Label()
+            {
+                Text = "Usuário:",
+                Font = new Font("Segoe UI", 12),
+                ForeColor = Color.White,
+                Location = new Point(330, 180),
+                AutoSize = true
+            };
+            this.Controls.Add(lblUsuario);
+
+            TextBox txtUsuario = new TextBox()
+            {
+                Name = "txtUsuarioLogin",
+                Font = new Font("Segoe UI", 12),
+                Location = new Point(410, 175),
+                Width = 220
+            };
+            this.Controls.Add(txtUsuario);
+
+            Label lblSenha = new Label()
+            {
+                Text = "Senha:",
+                Font = new Font("Segoe UI", 12),
+                ForeColor = Color.White,
+                Location = new Point(330, 230),
+                AutoSize = true
+            };
+            this.Controls.Add(lblSenha);
+
+            TextBox txtSenha = new TextBox()
+            {
+                Name = "txtSenhaLogin",
+                Font = new Font("Segoe UI", 12),
+                Location = new Point(410, 225),
+                Width = 220,
+                PasswordChar = '•'
+            };
+            this.Controls.Add(txtSenha);
+
+            Button btnEntrar = new Button()
+            {
+                Text = "Entrar",
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                BackColor = Color.FromArgb(150, 90, 50),
+                ForeColor = Color.White,
+                Location = new Point(410, 280),
+                Size = new Size(220, 42)
+            };
+            btnEntrar.Click += (s, e) =>
+            {
+                // Trim + ignore case no usuário, aceita senha "1234" por padrão
+                string usuario = txtUsuario.Text.Trim();
+                string senha = txtSenha.Text.Trim();
+
+                if (string.Equals(usuario, "admin", StringComparison.OrdinalIgnoreCase) && senha == "1234")
+                {
+                    // Entrou
+                    // Limpa controles e cria o sistema
+                    this.Controls.Clear();
+                    CriarInterfaceSistema();
+                    AtualizarGridProdutos();
+                }
+                else
+                {
+                    MessageBox.Show("Usuário ou senha incorretos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            };
+            this.Controls.Add(btnEntrar);
         }
 
-        private class Producao
-        {
-            public DateTime Data { get; set; }
-            public int Quantidade { get; set; }
-        }
-
-        private void CarregarProdutosPDF()
-        {
-            Produtos.Add(new Produto { Nome = "Gourmet 100% Arábica - Clara 250g", Categoria = "Arábica", Peso = "250 g", Preco = 42.90 });
-            Produtos.Add(new Produto { Nome = "Gourmet 100% Arábica - Clara 500g", Categoria = "Arábica", Peso = "500 g", Preco = 79.90 });
-            Produtos.Add(new Produto { Nome = "Gourmet 100% Arábica - Clara 1kg", Categoria = "Arábica", Peso = "1 kg", Preco = 97.90 });
-
-            Produtos.Add(new Produto { Nome = "Gourmet 100% Arábica - ES 250g", Categoria = "Arábica", Peso = "250 g", Preco = 45.90 });
-            Produtos.Add(new Produto { Nome = "Gourmet 100% Arábica - ES 500g", Categoria = "Arábica", Peso = "500 g", Preco = 84.90 });
-            Produtos.Add(new Produto { Nome = "Gourmet 100% Arábica - ES 1kg", Categoria = "Arábica", Peso = "1 kg", Preco = 104.90 });
-
-            Produtos.Add(new Produto { Nome = "Gourmet Arábica - Orgânico 250g", Categoria = "Orgânico", Peso = "250 g", Preco = 57.90 });
-            Produtos.Add(new Produto { Nome = "Gourmet Arábica - Orgânico 500g", Categoria = "Orgânico", Peso = "500 g", Preco = 109.90 });
-            Produtos.Add(new Produto { Nome = "Gourmet Arábica - Orgânico 1kg", Categoria = "Orgânico", Peso = "1 kg", Preco = 134.90 });
-
-            Produtos.Add(new Produto { Nome = "Gourmet Dark Roast 250g", Categoria = "Torrado", Peso = "250 g", Preco = 47.90 });
-            Produtos.Add(new Produto { Nome = "Gourmet Dark Roast 500g", Categoria = "Torrado", Peso = "500 g", Preco = 89.90 });
-            Produtos.Add(new Produto { Nome = "Gourmet Dark Roast 1kg", Categoria = "Torrado", Peso = "1 kg", Preco = 112.90 });
-
-            Produtos.Add(new Produto { Nome = "Intenso - Cápsulas (10)", Categoria = "Cápsulas", Peso = "50 g", Preco = 37.90 });
-            Produtos.Add(new Produto { Nome = "Intenso - Cápsulas (30)", Categoria = "Cápsulas", Peso = "150 g", Preco = 109.90 });
-            Produtos.Add(new Produto { Nome = "Intenso - Cápsulas (50)", Categoria = "Cápsulas", Peso = "250 g", Preco = 127.90 });
-
-            Produtos.Add(new Produto { Nome = "Rituais Mogiana 250g", Categoria = "Especial", Peso = "250 g", Preco = 62.90 });
-            Produtos.Add(new Produto { Nome = "Rituais Mogiana 500g", Categoria = "Especial", Peso = "500 g", Preco = 119.90 });
-            Produtos.Add(new Produto { Nome = "Rituais Mogiana 1kg", Categoria = "Especial", Peso = "1 kg", Preco = 142.90 });
-        }
-
-        private void CriarInterface()
+        // ----- Cria interface principal (menu + conteúdo) -----
+        private void CriarInterfaceSistema()
         {
             this.BackColor = Color.FromArgb(90, 55, 35);
 
-            painelMenu = new Panel();
-            painelMenu.Size = new Size(220, this.Height);
-            painelMenu.BackColor = Color.FromArgb(60, 35, 20);
+            // Painel menu lateral
+            painelMenu = new Panel()
+            {
+                Size = new Size(220, this.ClientSize.Height),
+                BackColor = Color.FromArgb(60, 35, 20),
+                Location = new Point(0, 0),
+                Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left
+            };
             this.Controls.Add(painelMenu);
 
+            // Botões do menu
             CriarBotaoMenu("Dashboard", 20, BtnDashboard_Click);
             CriarBotaoMenu("Estoque", 80, BtnEstoque_Click);
             CriarBotaoMenu("Clientes", 140, BtnClientes_Click);
             CriarBotaoMenu("Produção", 200, BtnProducao_Click);
             CriarBotaoMenu("Relatórios", 260, BtnRelatorios_Click);
 
-            painelConteudo = new Panel();
-            painelConteudo.Location = new Point(220, 0);
-            painelConteudo.Size = new Size(this.Width - 220, this.Height);
-            painelConteudo.BackColor = Color.FromArgb(130, 90, 55);
+            // Painel de conteúdo
+            painelConteudo = new Panel()
+            {
+                Location = new Point(220, 0),
+                Size = new Size(this.ClientSize.Width - 220, this.ClientSize.Height),
+                BackColor = Color.FromArgb(130, 90, 55),
+                Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right
+            };
             this.Controls.Add(painelConteudo);
 
             MostrarDashboard();
@@ -119,29 +209,35 @@ namespace Sistema_3_PI_DS
 
         private void CriarBotaoMenu(string texto, int top, EventHandler acao)
         {
-            Button btn = new Button();
-            btn.Text = texto;
-            btn.Font = new Font("Segoe UI", 11, FontStyle.Bold);
-            btn.SetBounds(20, top, 180, 45);
-            btn.BackColor = Color.FromArgb(90, 50, 30);
-            btn.ForeColor = Color.White;
-            btn.FlatStyle = FlatStyle.Flat;
+            Button btn = new Button()
+            {
+                Text = texto,
+                Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                Location = new Point(20, top),
+                Size = new Size(180, 45),
+                BackColor = Color.FromArgb(90, 50, 30),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat
+            };
             btn.FlatAppearance.BorderColor = Color.FromArgb(255, 204, 153);
             btn.FlatAppearance.BorderSize = 2;
             btn.Click += acao;
             painelMenu.Controls.Add(btn);
         }
 
+        // ----- Telas do sistema -----
         private void MostrarDashboard()
         {
             painelConteudo.Controls.Clear();
 
-            Label titulo = new Label();
-            titulo.Text = "ERP 4 Corações - Bem-vindo!";
-            titulo.Font = new Font("Segoe UI", 24, FontStyle.Bold);
-            titulo.ForeColor = Color.White;
-            titulo.AutoSize = true;
-            titulo.Location = new Point(30, 30);
+            Label titulo = new Label()
+            {
+                Text = "ERP 4 Corações - Bem-vindo!",
+                Font = new Font("Segoe UI", 24, FontStyle.Bold),
+                ForeColor = Color.White,
+                AutoSize = true,
+                Location = new Point(30, 30)
+            };
             painelConteudo.Controls.Add(titulo);
         }
 
@@ -149,6 +245,7 @@ namespace Sistema_3_PI_DS
         {
             painelConteudo.Controls.Clear();
 
+            // Labels / inputs
             AddLabel("Nome:", 20, 20);
             txtNomeProduto = AddTextbox(150, 20);
 
@@ -173,7 +270,7 @@ namespace Sistema_3_PI_DS
             btnExcluir.Click += BtnExcluirProduto_Click;
 
             grid = AddGrid(20, 300);
-            AtualizarGrid(Produtos);
+            AtualizarGridProdutos();
         }
 
         private void MostrarClientes()
@@ -190,7 +287,7 @@ namespace Sistema_3_PI_DS
             btnAdd.Click += BtnAddCliente_Click;
 
             grid = AddGrid(20, 170);
-            AtualizarGrid(Clientes);
+            AtualizarGridClientes();
         }
 
         private void MostrarProducao()
@@ -211,7 +308,7 @@ namespace Sistema_3_PI_DS
             btnAdd.Click += BtnAddProducao_Click;
 
             grid = AddGrid(20, 170);
-            AtualizarGrid(Producoes);
+            AtualizarGridProducoes();
         }
 
         private void MostrarRelatorios()
@@ -223,23 +320,30 @@ namespace Sistema_3_PI_DS
             Button b3 = AddButton("Clientes", 380, 20);
 
             grid = AddGrid(20, 80);
-            AtualizarGrid(Produtos);
+            AtualizarGridProdutos();
 
-            b1.Click += (s, e) => AtualizarGrid(Produtos);
-            b2.Click += (s, e) => AtualizarGrid(Producoes);
-            b3.Click += (s, e) => AtualizarGrid(Clientes);
+            b1.Click += (s, e) => AtualizarGridProdutos();
+            b2.Click += (s, e) => AtualizarGridProducoes();
+            b3.Click += (s, e) => AtualizarGridClientes();
         }
 
+        // ----- Eventos do menu -----
+        private void BtnDashboard_Click(object sender, EventArgs e) => MostrarDashboard();
+        private void BtnEstoque_Click(object sender, EventArgs e) => MostrarEstoque();
+        private void BtnClientes_Click(object sender, EventArgs e) => MostrarClientes();
+        private void BtnProducao_Click(object sender, EventArgs e) => MostrarProducao();
+        private void BtnRelatorios_Click(object sender, EventArgs e) => MostrarRelatorios();
+
+        // ----- Ações -----
         private void BtnAddProduto_Click(object sender, EventArgs e)
         {
-            double preco;
-            if (!double.TryParse(txtPreco.Text, out preco))
+            if (!double.TryParse(txtPreco.Text, out double preco))
             {
                 MessageBox.Show("Digite um preço válido.");
                 return;
             }
 
-            Produtos.Add(new Produto
+            Produtos.Add(new ProdutoModel
             {
                 Nome = txtNomeProduto.Text,
                 Categoria = txtCategoria.Text,
@@ -248,52 +352,37 @@ namespace Sistema_3_PI_DS
                 Quantidade = (int)nudQuantidade.Value
             });
 
-            AtualizarGrid(Produtos);
+            AtualizarGridProdutos();
         }
 
         private void BtnExcluirProduto_Click(object sender, EventArgs e)
         {
-            if (grid.SelectedRows.Count == 0)
+            if (grid == null || grid.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Selecione um produto para excluir.");
                 return;
             }
 
             int index = grid.SelectedRows[0].Index;
-            Produtos.RemoveAt(index);
-            AtualizarGrid(Produtos);
+            if (index >= 0 && index < Produtos.Count)
+                Produtos.RemoveAt(index);
+
+            AtualizarGridProdutos();
         }
 
         private void BtnAddCliente_Click(object sender, EventArgs e)
         {
-            Clientes.Add(new Cliente { Nome = txtNomeCliente.Text, Telefone = txtTelefone.Text });
-            AtualizarGrid(Clientes);
+            Clientes.Add(new ClienteModel { Nome = txtNomeCliente.Text, Telefone = txtTelefone.Text });
+            AtualizarGridClientes();
         }
 
         private void BtnAddProducao_Click(object sender, EventArgs e)
         {
-            Producoes.Add(new Producao { Data = dtpData.Value, Quantidade = (int)nudQtdProducao.Value });
-            AtualizarGrid(Producoes);
+            Producoes.Add(new ProducaoModel { Data = dtpData.Value, Quantidade = (int)nudQtdProducao.Value });
+            AtualizarGridProducoes();
         }
 
-        private void BtnDashboard_Click(object sender, EventArgs e) => MostrarDashboard();
-        private void BtnEstoque_Click(object sender, EventArgs e) => MostrarEstoque();
-        private void BtnClientes_Click(object sender, EventArgs e) => MostrarClientes();
-        private void BtnProducao_Click(object sender, EventArgs e) => MostrarProducao();
-        private void BtnRelatorios_Click(object sender, EventArgs e) => MostrarRelatorios();
-
-        private void AtualizarGrid(object lista)
-        {
-            grid.DataSource = null;
-            grid.DataSource = lista;
-
-            if (grid.Columns.Contains("Preco"))
-            {
-                grid.Columns["Preco"].DefaultCellStyle.Format = "C2";
-                grid.Columns["Preco"].HeaderText = "Preço (R$)";
-            }
-        }
-
+        // ----- Helpers UI -----
         private Label AddLabel(string texto, int x, int y)
         {
             Label lbl = new Label();
@@ -339,6 +428,30 @@ namespace Sistema_3_PI_DS
             dg.AllowUserToAddRows = false;
             painelConteudo.Controls.Add(dg);
             return dg;
+        }
+
+        // ----- Atualizar grids -----
+        private void AtualizarGridProdutos()
+        {
+            if (grid == null) grid = AddGrid(20, 300);
+            grid.DataSource = null;
+            grid.DataSource = Produtos;
+            if (grid.Columns.Contains("Preco"))
+                grid.Columns["Preco"].DefaultCellStyle.Format = "C2";
+        }
+
+        private void AtualizarGridClientes()
+        {
+            if (grid == null) grid = AddGrid(20, 170);
+            grid.DataSource = null;
+            grid.DataSource = Clientes;
+        }
+
+        private void AtualizarGridProducoes()
+        {
+            if (grid == null) grid = AddGrid(20, 170);
+            grid.DataSource = null;
+            grid.DataSource = Producoes;
         }
     }
 }

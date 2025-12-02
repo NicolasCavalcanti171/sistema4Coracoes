@@ -37,3 +37,13 @@ C:\Users\lab1065\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\bin\De
 C:\Users\lab1065\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\bin\Debug\Sistema_3_PI_DS.exe
 C:\Users\lab1065\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\bin\Debug\Sistema_3_PI_DS.pdb
 C:\Users\lab1065\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\obj\Debug\Sistema_3_PI_DS.exe.config
+C:\Users\lab1063\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\bin\Debug\Sistema_3_PI_DS.exe.config
+C:\Users\lab1063\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\bin\Debug\Sistema_3_PI_DS.exe
+C:\Users\lab1063\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\bin\Debug\Sistema_3_PI_DS.pdb
+C:\Users\lab1063\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\obj\Debug\Sistema_3_PI_DS.csproj.AssemblyReference.cache
+C:\Users\lab1063\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\obj\Debug\Sistema_3_PI_DS.exe.config
+C:\Users\lab1063\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\obj\Debug\Sistema_3_PI_DS.Properties.Resources.resources
+C:\Users\lab1063\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\obj\Debug\Sistema_3_PI_DS.csproj.GenerateResource.cache
+C:\Users\lab1063\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\obj\Debug\Sistema_3_PI_DS.csproj.CoreCompileInputs.cache
+C:\Users\lab1063\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\obj\Debug\Sistema_3_PI_DS.exe
+C:\Users\lab1063\Desktop\sistema4Coracoes\Sistema_3_PI_DS\Sistema_3_PI_DS\obj\Debug\Sistema_3_PI_DS.pdb
