@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\lab1063\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|C:\\Users\\lab1063\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\sistema_3_pi_ds\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|c:\\users\\lab1063\\desktop\\sistema4coracoes\\sistema_3_pi_ds\\sistema_3_pi_ds\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|solutionrelative:sistema_3_pi_ds\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|c:\\users\\lab1063\\desktop\\sistema4coracoes\\sistema_3_pi_ds\\sistema_3_pi_ds\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|C:\\Users\\lab1063\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\sistema_3_pi_ds\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{CA8AEFC5-0FF5-4CB0-9262-A65FD369AEAC}|Sistema_3_PI_DS\\Sistema_3_PI_DS.csproj|solutionrelative:sistema_3_pi_ds\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "Sistema_3_PI_DS\\Form1.cs",
               "ToolTip": "C:\\Users\\lab1063\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\Form1.cs",
               "RelativeToolTip": "Sistema_3_PI_DS\\Form1.cs",
-              "ViewState": "AgIAALUBAAAAAAAAAAAowMkBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAPcAAAAAAAAAAAAowMEBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T19:43:31.573Z",
               "EditorCaption": ""
@@ -54,8 +54,7 @@
               "ToolTip": "C:\\Users\\lab1063\\Desktop\\sistema4Coracoes\\Sistema_3_PI_DS\\Sistema_3_PI_DS\\Form1.cs [Design]",
               "RelativeToolTip": "Sistema_3_PI_DS\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T19:46:27.686Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-19T19:46:27.686Z"
             },
             {
               "$type": "Document",
@@ -67,8 +66,7 @@
               "RelativeToolTip": "Sistema_3_PI_DS\\Program.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAawBMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T19:42:06.777Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-19T19:42:06.777Z"
             }
           ]
         }

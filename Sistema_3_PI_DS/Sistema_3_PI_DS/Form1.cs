@@ -5,7 +5,6 @@ using System.Windows.Forms;
 
 namespace Sistema_3_PI_DS
 {
-    // Modelo com sufixo "Model" para evitar colisões com outras classes no projeto
     public class ProdutoModel
     {
         public string Nome { get; set; }
@@ -27,41 +26,30 @@ namespace Sistema_3_PI_DS
         public int Quantidade { get; set; }
     }
 
-    // Form principal — partial para compatibilidade com possíveis arquivos designer
     public partial class Form1 : Form
     {
-        // ----- Dados -----
         List<ProdutoModel> Produtos = new List<ProdutoModel>();
         List<ClienteModel> Clientes = new List<ClienteModel>();
         List<ProducaoModel> Producoes = new List<ProducaoModel>();
 
-        // ----- Controles principais -----
         Panel painelMenu;
         Panel painelConteudo;
         DataGridView grid;
 
-        // controles de estoque
         TextBox txtNomeProduto, txtCategoria, txtPeso, txtPreco;
         NumericUpDown nudQuantidade;
 
-        // controles de clientes
         TextBox txtNomeCliente, txtTelefone;
 
-        // produção
         NumericUpDown nudQtdProducao;
         DateTimePicker dtpData;
 
-        // ----- Construtor -----
         public Form1()
         {
-            // Se o seu projeto possuir um Form1.Designer.cs que define InitializeComponent,
-            // mantenha esta chamada; caso contrário, InitializeComponent abaixo é leve.
             InitializeComponent();
-            // Garanta que o Load seja inscrito:
             this.Load += Form1_Load;
         }
 
-        // Se não existir designer, essa implementação básica garante que tudo funcione.
         private void InitializeComponent()
         {
             this.ClientSize = new Size(1100, 650);
@@ -77,18 +65,35 @@ namespace Sistema_3_PI_DS
             CarregarProdutosPadrao();
         }
 
-        // ----- Dados iniciais (amostra) -----
         private void CarregarProdutosPadrao()
         {
-            Produtos.Add(new ProdutoModel { Nome = "Gourmet 250g", Categoria = "Arábica", Peso = "250 g", Preco = 42.90 });
-            Produtos.Add(new ProdutoModel { Nome = "Gourmet 500g", Categoria = "Arábica", Peso = "500 g", Preco = 79.90 });
-            Produtos.Add(new ProdutoModel { Nome = "Dark Roast 250g", Categoria = "Torrado", Peso = "250 g", Preco = 47.90 });
+            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – TORRA CLARA", Categoria = "Gourmet", Peso = "250 g", Preco = 42.90 });
+            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – TORRA CLARA", Categoria = "Gourmet", Peso = "500 g", Preco = 79.90 });
+            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – TORRA CLARA", Categoria = "Gourmet", Peso = "1 kg", Preco = 97.90 });
+
+            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – ESPÍRITO SANTO", Categoria = "Gourmet", Peso = "250 g", Preco = 45.90 });
+            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – ESPÍRITO SANTO", Categoria = "Gourmet", Peso = "500 g", Preco = 84.90 });
+            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – ESPÍRITO SANTO", Categoria = "Gourmet", Peso = "1 kg", Preco = 104.90 });
+
+            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – ORGÂNICO", Categoria = "Gourmet", Peso = "250 g", Preco = 57.90 });
+            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – ORGÂNICO", Categoria = "Gourmet", Peso = "500 g", Preco = 109.90 });
+            Produtos.Add(new ProdutoModel { Nome = "GOURMET 100% ARÁBICA – ORGÂNICO", Categoria = "Gourmet", Peso = "1 kg", Preco = 134.90 });
+
+            Produtos.Add(new ProdutoModel { Nome = "GOURMET – DARK ROAST", Categoria = "Torra Escura", Peso = "250 g", Preco = 47.90 });
+            Produtos.Add(new ProdutoModel { Nome = "GOURMET – DARK ROAST", Categoria = "Torra Escura", Peso = "500 g", Preco = 89.90 });
+            Produtos.Add(new ProdutoModel { Nome = "GOURMET – DARK ROAST", Categoria = "Torra Escura", Peso = "1 kg", Preco = 112.90 });
+
+            Produtos.Add(new ProdutoModel { Nome = "INTENSO – CÁPSULAS DE ALUMÍNIO", Categoria = "Cápsulas", Peso = "10 cápsulas (50 g)", Preco = 37.90 });
+            Produtos.Add(new ProdutoModel { Nome = "INTENSO – CÁPSULAS DE ALUMÍNIO", Categoria = "Cápsulas", Peso = "30 cápsulas (150 g)", Preco = 109.90 });
+            Produtos.Add(new ProdutoModel { Nome = "INTENSO – CÁPSULAS DE ALUMÍNIO", Categoria = "Cápsulas", Peso = "50 cápsulas (250 g)", Preco = 127.90 });
+
+            Produtos.Add(new ProdutoModel { Nome = "RITUAIS – MOGIANA PAULISTA", Categoria = "Rituais", Peso = "250 g", Preco = 62.90 });
+            Produtos.Add(new ProdutoModel { Nome = "RITUAIS – MOGIANA PAULISTA", Categoria = "Rituais", Peso = "500 g", Preco = 119.90 });
+            Produtos.Add(new ProdutoModel { Nome = "RITUAIS – MOGIANA PAULISTA", Categoria = "Rituais", Peso = "1 kg", Preco = 142.90 });
         }
 
-        // ----- Cria a interface (login -> sistema) -----
         private void CriarInterfaceInicial()
         {
-            // Tela inicial: login
             this.Controls.Clear();
             this.BackColor = Color.FromArgb(80, 45, 25);
 
@@ -152,14 +157,11 @@ namespace Sistema_3_PI_DS
             };
             btnEntrar.Click += (s, e) =>
             {
-                // Trim + ignore case no usuário, aceita senha "1234" por padrão
                 string usuario = txtUsuario.Text.Trim();
                 string senha = txtSenha.Text.Trim();
 
                 if (string.Equals(usuario, "admin", StringComparison.OrdinalIgnoreCase) && senha == "1234")
                 {
-                    // Entrou
-                    // Limpa controles e cria o sistema
                     this.Controls.Clear();
                     CriarInterfaceSistema();
                     AtualizarGridProdutos();
@@ -172,12 +174,10 @@ namespace Sistema_3_PI_DS
             this.Controls.Add(btnEntrar);
         }
 
-        // ----- Cria interface principal (menu + conteúdo) -----
         private void CriarInterfaceSistema()
         {
             this.BackColor = Color.FromArgb(90, 55, 35);
 
-            // Painel menu lateral
             painelMenu = new Panel()
             {
                 Size = new Size(220, this.ClientSize.Height),
@@ -187,14 +187,12 @@ namespace Sistema_3_PI_DS
             };
             this.Controls.Add(painelMenu);
 
-            // Botões do menu
             CriarBotaoMenu("Dashboard", 20, BtnDashboard_Click);
             CriarBotaoMenu("Estoque", 80, BtnEstoque_Click);
             CriarBotaoMenu("Clientes", 140, BtnClientes_Click);
             CriarBotaoMenu("Produção", 200, BtnProducao_Click);
             CriarBotaoMenu("Relatórios", 260, BtnRelatorios_Click);
 
-            // Painel de conteúdo
             painelConteudo = new Panel()
             {
                 Location = new Point(220, 0),
@@ -225,7 +223,6 @@ namespace Sistema_3_PI_DS
             painelMenu.Controls.Add(btn);
         }
 
-        // ----- Telas do sistema -----
         private void MostrarDashboard()
         {
             painelConteudo.Controls.Clear();
@@ -245,7 +242,6 @@ namespace Sistema_3_PI_DS
         {
             painelConteudo.Controls.Clear();
 
-            // Labels / inputs
             AddLabel("Nome:", 20, 20);
             txtNomeProduto = AddTextbox(150, 20);
 
@@ -327,14 +323,12 @@ namespace Sistema_3_PI_DS
             b3.Click += (s, e) => AtualizarGridClientes();
         }
 
-        // ----- Eventos do menu -----
         private void BtnDashboard_Click(object sender, EventArgs e) => MostrarDashboard();
         private void BtnEstoque_Click(object sender, EventArgs e) => MostrarEstoque();
         private void BtnClientes_Click(object sender, EventArgs e) => MostrarClientes();
         private void BtnProducao_Click(object sender, EventArgs e) => MostrarProducao();
         private void BtnRelatorios_Click(object sender, EventArgs e) => MostrarRelatorios();
 
-        // ----- Ações -----
         private void BtnAddProduto_Click(object sender, EventArgs e)
         {
             if (!double.TryParse(txtPreco.Text, out double preco))
@@ -382,7 +376,6 @@ namespace Sistema_3_PI_DS
             AtualizarGridProducoes();
         }
 
-        // ----- Helpers UI -----
         private Label AddLabel(string texto, int x, int y)
         {
             Label lbl = new Label();
@@ -430,7 +423,6 @@ namespace Sistema_3_PI_DS
             return dg;
         }
 
-        // ----- Atualizar grids -----
         private void AtualizarGridProdutos()
         {
             if (grid == null) grid = AddGrid(20, 300);
